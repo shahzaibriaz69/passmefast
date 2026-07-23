@@ -1,7 +1,8 @@
-// src/components/Navbar.jsx
+// src/components/Navbar.js
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null); // 'courses' | 'resources' | 'instructors' | 'areas' | null
@@ -12,7 +13,7 @@ export default function Navbar() {
       {/* 1. TOP MAIN BAR */}
       <div className="max-w-[1240px] mx-auto px-6 h-[88px] flex items-center justify-between">
         {/* Brand Logo */}
-        <div className="flex items-center gap-2.5 cursor-pointer">
+        <Link href="/" className="flex items-center gap-2.5 cursor-pointer">
           <div className="w-11 h-11 bg-[#22c55e] text-white rounded-md flex items-center justify-center font-black text-2xl tracking-tighter">
             P
           </div>
@@ -24,7 +25,7 @@ export default function Navbar() {
               YOUR <span className="text-[#22c55e]">FASTER</span> ROUTE TO DRIVING
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Right Info & Actions */}
         <div className="flex items-center gap-6">
@@ -415,7 +416,13 @@ export default function Navbar() {
             )}
           </div>
 
-          <span className="uppercase tracking-wider hover:text-[#22c55e] cursor-pointer py-3">HELP & SUPPORT</span>
+          {/* LINKED HELP & SUPPORT PAGE */}
+          <Link 
+            href="/help-and-support" 
+            className="uppercase tracking-wider hover:text-[#22c55e] cursor-pointer py-3 transition-colors"
+          >
+            HELP & SUPPORT
+          </Link>
 
         </div>
       </div>
