@@ -122,6 +122,65 @@ export default function LandingSections() {
     'Manchester',
   ];
 
+  // 4. Why PassMeFast Data
+  const whyUsCards = [
+    {
+      id: 1,
+      title: 'Courses to suit you',
+      description:
+        'Our driving courses can run intensively and semi-intensively or as slow as you need to go',
+      linkText: 'See Courses',
+      href: '#courses',
+      icon: (
+        <div className="relative w-16 h-16 flex items-center justify-start">
+          <span className="absolute top-0 right-2 w-2 h-2 rounded-full border border-pink-400"></span>
+          <span className="absolute bottom-2 left-0 w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <svg className="w-14 h-14 text-[#041129]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            <circle cx="18" cy="17" r="3" strokeWidth="1.5" />
+          </svg>
+        </div>
+      ),
+    },
+    {
+      id: 2,
+      title: 'Success stories',
+      description:
+        "We've helped over 80,000 students get on the road, check out our reviews!",
+      linkText: 'Customer Reviews',
+      href: '#reviews',
+      icon: (
+        <div className="relative w-16 h-16 flex items-center justify-start">
+          <span className="absolute top-0 right-1 w-2 h-2 rounded-full border border-pink-400"></span>
+          <span className="absolute bottom-1 left-0 w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+          <span className="absolute bottom-2 right-2 w-1 h-3 bg-emerald-400 rounded-full"></span>
+          <svg className="w-14 h-14 text-[#041129]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h4m5 2H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2z" />
+            <circle cx="17" cy="15" r="2" strokeWidth="1.5" />
+          </svg>
+        </div>
+      ),
+    },
+    {
+      id: 3,
+      title: 'Home Pickups',
+      description:
+        'Get picked up and dropped off at home for driving lessons across most of Great Britain',
+      linkText: 'Pickup Information',
+      href: '#pickups',
+      icon: (
+        <div className="relative w-16 h-16 flex items-center justify-start">
+          <span className="absolute top-1 right-2 w-2 h-2 rounded-full border border-pink-400"></span>
+          <span className="absolute bottom-2 left-0 w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+          <span className="absolute bottom-1 right-3 w-1 h-3 bg-emerald-400 rounded-full"></span>
+          <svg className="w-14 h-14 text-[#041129]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div className="bg-[#F8FAFC] text-slate-800 font-sans w-full overflow-hidden">
 
@@ -287,16 +346,15 @@ export default function LandingSections() {
         </div>
       </section>
 
-      {/* 6. FIND DRIVING LESSONS NEAR ME - EXACT PASSMEFAST FULL-WIDTH LAYOUT */}
+      {/* 6. FIND DRIVING LESSONS NEAR ME */}
       <section className="w-full bg-white py-12 px-6 sm:px-12 lg:px-20 border-t border-b border-gray-100 relative overflow-hidden">
         <div className="w-full relative min-h-[480px]">
           
           <div className="grid lg:grid-cols-12 gap-8 items-stretch relative z-10">
             
-            {/* Left Column: Heading, Vector Map, and Overlaid Text */}
+            {/* Left Column */}
             <div className="lg:col-span-8 relative flex flex-col justify-between min-h-[440px]">
               
-              {/* Heading */}
               <div className="flex items-center gap-3 z-20">
                 <div className="w-1.5 h-7 bg-[#10B981] rounded-full"></div>
                 <h2 className="text-xl sm:text-2xl font-black text-[#041129] tracking-tight uppercase">
@@ -304,14 +362,12 @@ export default function LandingSections() {
                 </h2>
               </div>
 
-              {/* Full Background Map Graphic */}
               <div className="absolute inset-0 pointer-events-none flex items-center justify-start z-0 opacity-80 pl-2 sm:pl-10">
                 <div className="relative w-full max-w-[550px] h-[450px]">
                   <svg className="w-full h-full text-emerald-100 fill-current" viewBox="0 0 300 400" preserveAspectRatio="xMinYMid meet">
                     <path d="M 120,20 C 140,20 150,30 160,50 C 170,70 180,90 190,110 C 200,130 210,150 220,170 C 230,190 220,220 200,240 C 180,260 170,280 150,300 C 130,320 110,300 100,280 C 90,260 100,240 110,220 C 120,200 100,180 90,160 C 80,140 90,120 100,100 C 110,80 100,40 120,20 Z" />
                   </svg>
 
-                  {/* Green Pins */}
                   <span className="absolute top-[18%] left-[42%] w-4 h-4 sm:w-5 sm:h-5 bg-[#10B981] rounded-full border-2 border-white shadow-sm"></span>
                   <span className="absolute top-[28%] left-[50%] w-4 h-4 sm:w-5 sm:h-5 bg-[#10B981] rounded-full border-2 border-white shadow-sm"></span>
                   <span className="absolute top-[42%] left-[56%] w-4 h-4 sm:w-5 sm:h-5 bg-[#10B981] rounded-full border-2 border-white shadow-sm"></span>
@@ -321,12 +377,10 @@ export default function LandingSections() {
                   <span className="absolute top-[68%] left-[60%] w-4 h-4 sm:w-5 sm:h-5 bg-[#10B981] rounded-full border-2 border-white shadow-sm"></span>
                   <span className="absolute top-[70%] left-[48%] w-4 h-4 sm:w-5 sm:h-5 bg-[#10B981] rounded-full border-2 border-white shadow-sm"></span>
 
-                  {/* Dark Navy Active Pin */}
                   <span className="absolute top-[44%] left-[46%] w-5 h-5 sm:w-6 sm:h-6 bg-[#02112B] rounded-full border-2 border-white shadow-md"></span>
                 </div>
               </div>
 
-              {/* Text Overlaid directly on top of the Map Graphic */}
               <div className="relative z-10 mt-auto max-w-md pt-28 text-slate-700 text-xs sm:text-sm leading-relaxed font-semibold">
                 Our experienced instructors operate nationwide. So whether you're looking for intensive driving courses or{' '}
                 <a href="#london" className="underline text-[#041129] decoration-slate-400 underline-offset-2 hover:text-[#10B981]">driving lessons</a> in{' '}
@@ -339,7 +393,7 @@ export default function LandingSections() {
 
             </div>
 
-            {/* Right Column: Cities List with Divider Lines & Pill CTA */}
+            {/* Right Column */}
             <div className="lg:col-span-4 flex flex-col justify-between pt-2">
               <div className="divide-y divide-slate-100">
                 {locations.map((city, idx) => (
@@ -353,7 +407,6 @@ export default function LandingSections() {
                 ))}
               </div>
 
-              {/* Pink Pill Button */}
               <div className="mt-8">
                 <a
                   href="#all-locations"
@@ -365,6 +418,51 @@ export default function LandingSections() {
               </div>
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. WHY LEARN TO DRIVE WITH PASSMEFAST? */}
+      <section className="bg-[#F1F3F5] py-14 px-4 sm:px-6 lg:px-8 w-full border-b border-gray-200/60">
+        <div className="max-w-7xl mx-auto">
+          
+          <div className="flex items-center gap-3 mb-10">
+            <div className="w-1.5 h-7 bg-[#E91E63] rounded-sm"></div>
+            <h2 className="text-xl sm:text-2xl font-black text-[#041129] tracking-tight uppercase">
+              WHY LEARN TO DRIVE WITH PASSMEFAST?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+            {whyUsCards.map((card) => (
+              <div
+                key={card.id}
+                className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col justify-between items-start transition-all duration-300 hover:shadow-md border border-gray-100/50"
+              >
+                <div>
+                  <div className="mb-6">
+                    {card.icon}
+                  </div>
+
+                  <h3 className="text-xl font-black text-[#041129] mb-3 tracking-tight">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-[#4B5563] text-xs sm:text-sm leading-relaxed font-normal mb-8">
+                    {card.description}
+                  </p>
+                </div>
+
+                <a
+                  href={card.href}
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#041129] hover:text-[#E91E63] border-b-2 border-[#041129] hover:border-[#E91E63] pb-0.5 transition-colors duration-200"
+                >
+                  <span>{card.linkText}</span>
+                  <span className="text-sm font-normal">›</span>
+                </a>
+              </div>
+            ))}
           </div>
 
         </div>
