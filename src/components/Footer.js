@@ -3,187 +3,189 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
+
+const linkCols = [
+  {
+    title: 'PassMeFast',
+    links: [
+      ['Frequently Asked Questions', '/faq'],
+      ['About Us', '/about'],
+      ['Contact Us', '/contact'],
+      ['Careers & Vacancies', '/careers'],
+      ['Instructors Needed', '/instructors'],
+    ],
+  },
+  {
+    title: 'Our Driving Courses',
+    links: [
+      ['Intensive Driving Courses', '/courses/intensive'],
+      ['Automatic Driving Lessons', '/courses/automatic'],
+      ['Female Driving Instructors', '/courses/female-instructors'],
+      ['Driving Lesson Prices', '/prices'],
+      ['Student Discount', '/discounts/student'],
+      ['Apprentice & Youth Discount', '/discounts/apprentice'],
+      ['Graduate Discount', '/discounts/graduate'],
+    ],
+  },
+  {
+    title: 'Courses Nationwide',
+    links: [
+      ['All Areas Covered', '/areas'],
+      ['London', '/areas/london'],
+      ['Manchester', '/areas/manchester'],
+      ['Edinburgh', '/areas/edinburgh'],
+      ['Hampshire', '/areas/hampshire'],
+      ['West Midlands', '/areas/west-midlands'],
+      ['Cardiff', '/areas/cardiff'],
+    ],
+  },
+  {
+    title: 'Driving Content',
+    links: [
+      ['Help & Resources', '/resources'],
+      ['Pratical Test', '/tests/practical'],
+      ['Theory Test', '/tests/theory'],
+      ['Course Guides', '/guides'],
+      ['Driving Advice', '/advice'],
+      ['Written in the Stars', '/blog'],
+    ],
+  },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const reduceMotion = useReducedMotion();
+  const reveal = reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 36 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.1 },
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      };
 
   return (
-    <footer className="bg-[#2bd864] text-[#000839] font-sans pt-12 pb-6 px-4 sm:px-8 lg:px-16 w-full text-left">
-      <div className="max-w-[1280px] mx-auto">
-        
-        {/* Main Grid Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10">
-          
-          {/* Left Side: 2x2 Grid Layout for Links */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-            
-            {/* Top-Left: PASSMEFAST */}
-            <div>
-              <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-wider mb-2 text-[#000839]">
-                PASSMEFAST
-              </h3>
-              <div className="w-full h-[1px] bg-white/70 mb-4"></div>
-              <ul className="space-y-2.5 text-sm font-medium text-[#000839]/90">
-                <li><Link href="/faq" className="hover:underline">Frequently Asked Questions</Link></li>
-                <li><Link href="/about" className="hover:underline">About Us</Link></li>
-                <li><Link href="/contact" className="hover:underline">Contact Us</Link></li>
-                <li><Link href="/careers" className="hover:underline">Careers & Vacancies</Link></li>
-                <li><Link href="/instructors" className="hover:underline">Instructors Needed</Link></li>
-              </ul>
-            </div>
-
-            {/* Top-Right: OUR DRIVING COURSES */}
-            <div>
-              <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-wider mb-2 text-[#000839]">
-                OUR DRIVING COURSES
-              </h3>
-              <div className="w-full h-[1px] bg-white/70 mb-4"></div>
-              <ul className="space-y-2.5 text-sm font-medium text-[#000839]/90">
-                <li><Link href="/courses/intensive" className="hover:underline">Intensive Driving Courses</Link></li>
-                <li><Link href="/courses/automatic" className="hover:underline">Automatic Driving Lessons</Link></li>
-                <li><Link href="/courses/female-instructors" className="hover:underline">Female Driving Instructors</Link></li>
-                <li><Link href="/prices" className="hover:underline">Driving Lesson Prices</Link></li>
-                <li><Link href="/discounts/student" className="hover:underline">Student Discount</Link></li>
-                <li><Link href="/discounts/apprentice" className="hover:underline">Apprentice & Youth Discount</Link></li>
-                <li><Link href="/discounts/graduate" className="hover:underline">Graduate Discount</Link></li>
-              </ul>
-            </div>
-
-            {/* Bottom-Left: COURSES NATIONWIDE */}
-            <div>
-              <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-wider mb-2 text-[#000839]">
-                COURSES NATIONWIDE
-              </h3>
-              <div className="w-full h-[1px] bg-white/70 mb-4"></div>
-              <ul className="space-y-2.5 text-sm font-medium text-[#000839]/90">
-                <li><Link href="/areas" className="hover:underline">All Areas Covered</Link></li>
-                <li><Link href="/areas/london" className="hover:underline">London</Link></li>
-                <li><Link href="/areas/manchester" className="hover:underline">Manchester</Link></li>
-                <li><Link href="/areas/edinburgh" className="hover:underline">Edinburgh</Link></li>
-                <li><Link href="/areas/hampshire" className="hover:underline">Hampshire</Link></li>
-                <li><Link href="/areas/west-midlands" className="hover:underline">West Midlands</Link></li>
-                <li><Link href="/areas/cardiff" className="hover:underline">Cardiff</Link></li>
-              </ul>
-            </div>
-
-            {/* Bottom-Right: DRIVING CONTENT */}
-            <div>
-              <h3 className="font-extrabold text-sm sm:text-base uppercase tracking-wider mb-2 text-[#000839]">
-                DRIVING CONTENT
-              </h3>
-              <div className="w-full h-[1px] bg-white/70 mb-4"></div>
-              <ul className="space-y-2.5 text-sm font-medium text-[#000839]/90">
-                <li><Link href="/resources" className="hover:underline">Help & Resources</Link></li>
-                <li><Link href="/tests/practical" className="hover:underline">Pratical Test</Link></li>
-                <li><Link href="/tests/theory" className="hover:underline">Theory Test</Link></li>
-                <li><Link href="/guides" className="hover:underline">Course Guides</Link></li>
-                <li><Link href="/advice" className="hover:underline">Driving Advice</Link></li>
-                <li><Link href="/blog" className="hover:underline">Written in the Stars</Link></li>
-              </ul>
-            </div>
-
-          </div>
-
-          {/* Right Side: Phone, Socials, Badges & Legal Text */}
-          <div className="lg:col-span-4 flex flex-col items-center lg:items-center text-center">
-            
-            {/* Phone Number */}
-            <a
-              href="tel:03331234949"
-              className="text-3xl sm:text-4xl font-black text-[#000839] hover:opacity-80 transition-opacity mb-4 tracking-tight"
-            >
-              0333 123 4949
-            </a>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 mb-6">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#000839] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
+    <footer className="w-full text-left font-sans text-[#03064e]">
+      <motion.section {...reveal} className="flex flex-wrap bg-[#2bcd5a]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-12 text-sm flex flex-row flex-wrap">
+          <div className="grid grid-cols-1 grid-rows-1 md:grid-cols-5 md:grid-rows-3 w-full p-2 gap-5 gap-x-10">
+            {/* Phone + socials */}
+            <div className="py-12 w-full order-1 md:order-2 md:col-span-2 flex flex-col items-center justify-center text-white">
+              <a
+                href="tel:03331234949"
+                className="mb-4 text-center text-2xl font-bold text-white hover:underline underline-offset-2"
+              >
+                0333 123 4949
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#000839] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#000839] text-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
+              <ul className="flex gap-4">
+                <li>
+                  <a href="https://www.facebook.com/passmefast/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <div className="rounded-full bg-[#03064e] size-12 flex items-center justify-center text-white hover:opacity-50 transition-all">
+                      <svg className="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/passmefast" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <div className="rounded-full bg-[#03064e] size-12 flex items-center justify-center text-white hover:opacity-50 transition-all">
+                      <svg className="size-5" viewBox="0 0 1200 1227" fill="none" aria-hidden="true">
+                        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white" />
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/passmefastuk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <div className="rounded-full bg-[#03064e] size-12 flex items-center justify-center text-white hover:opacity-50 transition-all">
+                      <svg className="size-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z" />
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </div>
 
-            {/* Trustpilot Box */}
-            <div className="bg-white rounded-lg px-4 py-2.5 flex items-center gap-2 shadow-xs mb-5 border border-gray-100">
-              <span className="font-bold text-sm text-black underline">Excellent</span>
-              <div className="flex gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="bg-[#00b67a] text-white p-1 text-[10px] leading-none">
-                    ★
+            {/* Link columns */}
+            <div className="h-full w-full order-2 md:order-1 md:col-span-3 md:row-span-3 grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-10">
+              {linkCols.map((col) => (
+                <div key={col.title} className="border-b first:border-t py-3 border-white md:border-0 first:md:border-t-0">
+                  <div className="flex justify-between uppercase flex-col w-full md:border-b md:border-white/80 md:pb-2">
+                    <h3 className="font-bold text-white text-sm">{col.title}</h3>
                   </div>
-                ))}
+                  <ul className="overflow-hidden flex flex-col gap-2">
+                    {col.links.map(([label, href]) => (
+                      <li key={label} className="w-full first-of-type:pt-3 last-of-type:pb-4">
+                        <Link href={href} className="text-sm text-[#03064e] hover:underline underline-offset-2">
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Trustpilot + payments + legal */}
+            <div className="w-full order-3 md:col-span-2 md:row-span-2 flex flex-col items-center gap-8">
+              <a
+                href="https://uk.trustpilot.com/review/passmefast.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-lg px-4 pt-3 pb-2 w-max flex items-center gap-2"
+              >
+                <span className="font-bold text-sm text-black underline">Excellent</span>
+                <div className="flex gap-0.5">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <span key={i} className="bg-[#00b67a] text-white px-1 text-[10px] leading-5">★</span>
+                  ))}
+                </div>
+                <span className="font-bold text-xs text-black flex items-center gap-1">★ Trustpilot</span>
+              </a>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                <span className="bg-white px-2.5 py-1 rounded font-black text-xs text-[#1a1f71] italic">VISA</span>
+                <span className="bg-white px-2.5 py-1 rounded font-bold text-xs text-[#eb001b]">mastercard</span>
+                <span className="bg-white px-2.5 py-1 rounded font-bold text-xs text-[#006fcf]">AMEX</span>
               </div>
-              <span className="font-extrabold text-xs text-black flex items-center gap-1 ml-1">
-                ★ Trustpilot
-              </span>
-            </div>
+              <div className="flex flex-wrap justify-center gap-3">
+                <span className="bg-white px-3 py-1 rounded font-extrabold text-xs text-black">Klarna.</span>
+                <span className="bg-white px-3 py-1 rounded font-black text-xs text-[#00b5ad] italic">Payl8r</span>
+                <span className="bg-white px-3 py-1 rounded font-bold text-xs text-black">Pay</span>
+                <span className="bg-white px-3 py-1 rounded font-bold text-xs text-black">G Pay</span>
+              </div>
 
-            {/* Payment Cards Line 1 */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
-              <span className="bg-white px-2.5 py-1 rounded font-black text-xs text-[#1a1f71] italic tracking-tighter shadow-xs">VISA</span>
-              <span className="bg-white px-2.5 py-1 rounded font-bold text-xs text-[#eb001b] shadow-xs">mastercard</span>
-              <span className="bg-white px-2.5 py-1 rounded font-bold text-xs text-[#006fcf] shadow-xs">AMEX</span>
+              <div>
+                <p className="text-sm text-white text-center mb-4 mt-5">*Klarna only available on purchases under £2,500</p>
+                <p className="text-sm text-white text-center">
+                  ** Subject to affordability assessments. STAR GENIE LTD T/A PASSMEFAST is an Introducer Appointed Representative of Social Money LTD t/a Payl8r who is authorised by the FCA under ref. 675283. Missed payments may affect your credit file, future borrowing and incur fees.
+                </p>
+              </div>
             </div>
-
-            {/* Payment Cards Line 2 */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-              <span className="bg-white px-3 py-1 rounded font-extrabold text-xs text-black shadow-xs">Klarna.</span>
-              <span className="bg-white px-3 py-1 rounded font-black text-xs text-[#00b5ad] italic shadow-xs">Payl8r</span>
-              <span className="bg-white px-3 py-1 rounded font-bold text-xs text-black shadow-xs flex items-center gap-1">Pay</span>
-              <span className="bg-white px-3 py-1 rounded font-bold text-xs text-black shadow-xs">G Pay</span>
-            </div>
-
-            {/* Legal Disclaimers */}
-            <div className="text-[11px] leading-relaxed text-[#000839]/80 font-normal max-w-md space-y-2 text-center">
-              <p>*Klarna only available on purchases under £2,500</p>
-              <p>
-                ** Subject to affordability assessments. STAR GENIE LTD T/A PASSMEFAST is an Introducer Appointed Representative of Social Money LTD t/a Payl8r who is authorised by the FCA under ref. 675283. Missed payments may affect your credit file, future borrowing and incur fees.
-              </p>
-            </div>
-
           </div>
-
         </div>
+      </motion.section>
 
-        {/* Separator Line */}
-        <div className="w-full h-[1px] bg-white/70 mb-6"></div>
-
-        {/* Bottom Bar Links & Copyright */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between text-xs font-bold text-[#000839] gap-4">
-          
-          {/* Policy Links */}
-          <div className="flex flex-wrap gap-4 sm:gap-6">
-            <Link href="/terms" className="hover:underline">Terms & Conditions</Link>
-            <Link href="/complaints" className="hover:underline">Complaints Policy</Link>
-            <Link href="/privacy" className="hover:underline">Privacy Notice</Link>
-            <Link href="/cookies" className="hover:underline">Cookie Policy</Link>
+      <motion.section {...reveal} className="border-t border-white bg-[#2bcd5a] text-sm font-semibold text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap md:flex-nowrap items-center justify-between">
+          <div className="w-full py-2 text-center md:text-left">
+            <ul className="flex justify-center flex-col md:flex-row py-2 md:justify-start [&>li]:py-3 [&>li]:pr-4 md:[&>li]:py-0">
+              <li><Link href="/terms" className="hover:underline underline-offset-2">Terms & Conditions</Link></li>
+              <li><Link href="/complaints" className="hover:underline underline-offset-2">Complaints Policy</Link></li>
+              <li><Link href="/privacy" className="hover:underline underline-offset-2">Privacy Notice</Link></li>
+              <li><Link href="/cookies" className="hover:underline underline-offset-2">Cookie Policy</Link></li>
+            </ul>
+            <p className="py-2 text-center md:text-left">Star Genie Limited trading as PassMeFast. Company number 10093359.</p>
           </div>
-
-          {/* Copyright Text */}
-          <div className="text-left md:text-right space-y-1">
-            <p>Copyright © {currentYear} owned by Star Genie Limited.</p>
-            <p className="font-medium text-[11px] opacity-90">
-              Star Genie Limited trading as PassMeFast. Company number 10093359.
-            </p>
-            <p className="font-medium text-[11px] opacity-90">
-              PassMeFast, 8 Exchange Quay, Salford, England, M5 3EQ
-            </p>
+          <div className="w-full pb-2 text-center md:text-right">
+            <p className="py-2">Copyright © {currentYear} owned by Star Genie Limited</p>
+            <p className="py-2">PassMeFast, 8 Exchange Quay, Salford, England, M5 3EJ</p>
           </div>
-
         </div>
-
-      </div>
+      </motion.section>
     </footer>
   );
 }
